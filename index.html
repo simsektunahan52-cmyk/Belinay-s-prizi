@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Belinay'a Özel 🤍</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0; min-height:100vh; padding:24px 16px;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; color:#87415f;
+  background:linear-gradient(145deg,#ffe5ef,#fff8fb,#ffc9df);
+}
+.card{
+  width:min(100%,520px); padding:30px 24px; text-align:center;
+  background:#ffffffdf; border:1px solid #fff;
+  border-radius:26px; box-shadow:0 12px 35px #b94b7625;
+}
+h1,h2{color:#d45187}
+h1{font-size:clamp(30px,8vw,42px); margin:8px 0 12px}
+p{line-height:1.9; font-size:17px}
+input{
+  width:100%; padding:15px; margin:12px 0;
+  border:1px solid #efb2ca; border-radius:14px;
+  text-align:center; font-size:20px; letter-spacing:3px;
+  outline:none;
+}
+button{
+  border:0; border-radius:30px; padding:14px 25px;
+  background:#d95f91; color:white; font-size:17px;
+  cursor:pointer;
+}
+#error{color:#b52d5f; min-height:24px; font-size:14px}
+#letter{display:none; text-align:left; animation:appear .7s ease}
+#letter h2{text-align:center}
+.heart{font-size:24px; text-align:center; margin:10px}
+@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.small{font-size:14px;color:#b06b88}
+</style>
+</head>
+<body>
+<main class="card">
+  <section id="lock">
+    <div class="heart">🤍</div>
+    <h1>Belinay'a Özel</h1>
+    <p>Senin için küçük bir sürpriz hazırladım.<br>İçeri girmek için bizim özel tarihimizi yaz sevgilim.</p>
+    <input id="password" type="password" inputmode="decimal" placeholder="Şifre" aria-label="Şifre">
+    <button onclick="unlock()">Sürprizi Aç 🤍</button>
+    <div id="error" aria-live="polite"></div>
+    <div class="small">Küçük bir tarih, benim için kocaman bir anlam…</div>
+  </section>
+
+  <section id="letter">
+    <div class="heart">🤍</div>
+    <h2>Hoş geldin Belinay</h2>
+    <p>
+      Sevgilim, bu sayfayı açtığında yüzünde küçücük de olsa bir gülümseme
+      oluşsun istedim. Belki sana her gün seni sevdiğimi söylüyorum ama
+      içimde sana karşı olan sevgimi bazen kelimelere sığdırmak gerçekten
+      zor geliyor.
+    </p>
+    <p>
+      Hayatıma girdiğin günden beri sıradan dediğim birçok anın bile ayrı
+      bir güzelliği oldu. Sesin, gülüşün, benimle paylaştığın küçücük
+      şeyler ve birlikte biriktirdiğimiz anılar benim için çok kıymetli.
+      Seninle sadece güzel günleri değil, hayatın getirdiği her şeyi
+      paylaşmak; birbirimizi dinlemek, anlamak ve her koşulda desteklemek
+      istiyorum.
+    </p>
+    <p>
+      Dört ayımıza yaklaşırken geriye dönüp baktığımda seninle yaşadığım
+      her an için Allah'a şükrediyorum. İyi ki yollarımız kesişmiş,
+      iyi ki seni tanımışım ve iyi ki hayatımda sen varsın. Gelecekte
+      daha nice güzel anı biriktirmek, her yeni günümüzde birbirimizi
+      yeniden mutlu etmek istiyorum.
+    </p>
+    <p>
+      Belinay, benim için ne kadar değerli olduğunu hiçbir sayfa tam
+      olarak anlatamaz. Sadece şunu bilmeni istiyorum: Seni çok seviyorum
+      ve hayatımda olduğun için çok mutluyum. İyi ki varsın sevgilim.
+    </p>
+    <div class="heart">Seni çok seviyorum 🤍</div>
+  </section>
+</main>
+<script>
+function unlock(){
+  const value=document.getElementById('password').value.trim();
+  if(value==='07.25'){
+    document.getElementById('lock').style.display='none';
+    document.getElementById('letter').style.display='block';
+  }else{
+    document.getElementById('error').textContent='Şifre doğru değil sevgilim, bizim tarihimizi dene 🤍';
+  }
+}
+document.getElementById('password').addEventListener('keydown',e=>{
+  if(e.key==='Enter') unlock();
+});
+</script>
+</body>
+</html>
